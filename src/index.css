@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Import fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap');
+
+  /* Base styles */
+  html {
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    @apply bg-tan-50 text-navy-900 dark:bg-navy-900 dark:text-tan-50;
+    @apply transition-colors duration-300;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+@layer components {
+  /* Typography */
+  .heading-gradient {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-bold;
+    @apply bg-gradient-to-br from-navy-900 via-wine-700 to-navy-900;
+    @apply dark:from-tan-50 dark:via-wine-400 dark:to-tan-50;
+    @apply bg-clip-text text-transparent;
+    @apply tracking-tight leading-tight;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  .subheading {
+    @apply text-lg sm:text-xl lg:text-2xl;
+    @apply text-navy-600 dark:text-tan-200;
+    @apply tracking-wide;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 0.01em;
+    line-height: 1.6;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white/95 dark:bg-navy-800/95;
+    @apply border border-tan-100/50 dark:border-navy-600/50;
+    @apply shadow-lg hover:shadow-xl;
+    @apply rounded-2xl;
+    @apply backdrop-blur-sm;
+    @apply transition-all duration-300;
+  }
+
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center;
+    @apply px-6 py-3 rounded-xl;
+    @apply font-medium text-sm;
+    @apply transition-all duration-300;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-br from-wine-600 to-wine-700;
+    @apply hover:from-wine-700 hover:to-wine-800;
+    @apply text-white;
+    @apply shadow-lg shadow-wine-500/25;
+    @apply hover:shadow-xl hover:shadow-wine-500/30;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-tan-100 dark:bg-navy-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-tan-300 dark:bg-navy-600 rounded-full;
+}
